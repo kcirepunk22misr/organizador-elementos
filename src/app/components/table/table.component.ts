@@ -23,7 +23,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   getInventorys() {
     return this._herramientasService.getInventorys().subscribe((resp) => {
-      this.inventarios.push(...resp.inventaios);
+      this.inventarios = resp.inventaios;
     });
   }
 
@@ -39,6 +39,7 @@ export class TableComponent implements OnInit, OnDestroy {
     }).then((result) => {
       if (result.value) {
         this._herramientasService.deleteInventory(id).subscribe((resp: any) => {
+          this.getInventorys();
           Swal.fire(
             'Borrado Exitosamente',
             `${resp.inventory.name} Borrado`,

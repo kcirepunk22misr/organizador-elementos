@@ -12,7 +12,5 @@ export class ModalImageComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.id, this.img);
-  }
+  ngOnInit(): void {}
 }
