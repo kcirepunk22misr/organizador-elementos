@@ -1,0 +1,314 @@
+<div #element class="container">
+  <div class="m-5">
+    <h2 class="text-center">Actualizar</h2>
+    <hr />
+    <form
+      #f="ngForm"
+      (ngSubmit)="actualizar(f)"
+      class="row card-body d-flex justify-content-around"
+    >
+      <div class="card col-5">
+        <div class="card-body">
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="name">Nombre: </label>
+              <input
+                type="text"
+                autocomplete="off"
+                name="name"
+                #name
+                [(ngModel)]="inventory.name"
+                class="form-control"
+                placeholder="Nombre"
+                disabled
+              />
+
+              <span
+                (click)="name.disabled = !name.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+              <!-- <button class="btn btn-secondary">
+              </button> -->
+            </div>
+            <div class="col-6">
+              <label for="group">Grupo: </label>
+              <select
+                name="group"
+                #group
+                [(ngModel)]="inventory.group"
+                class="form-control"
+                disabled
+              >
+                <option
+                  [value]="group.name"
+                  [selected]="inventory.group"
+                  *ngFor="let group of groups"
+                >
+                  {{ group.name }}
+                </option>
+              </select>
+              <span
+                (click)="group.disabled = !group.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="type">Tipo: </label>
+              <select
+                name="type"
+                #type
+                [(ngModel)]="inventory.type"
+                class="form-control"
+                disabled
+              >
+                <option
+                  [value]="type.name"
+                  [selected]="type.name == inventory.name"
+                  *ngFor="let type of types"
+                >
+                  {{ type.name }}
+                </option>
+              </select>
+              <span
+                (click)="type.disabled = !type.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+            <div class="col-6">
+              <label for="marca">Marca: </label>
+              <select
+                name="marca"
+                #marca
+                [(ngModel)]="inventory.marca"
+                class="form-control"
+                disabled
+              >
+                <option
+                  [value]="marca.name"
+                  [selected]="marca.name == inventory.marca"
+                  *ngFor="let marca of marcas"
+                >
+                  {{ marca.name }}
+                </option>
+              </select>
+              <span
+                (click)="marca.disabled = !marca.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="color">Color: </label>
+              <select
+                name="color"
+                #color
+                disabled
+                [(ngModel)]="inventory.color"
+                class="form-control"
+              >
+                <option
+                  [value]="color.name"
+                  [selected]="color.name == inventory.color"
+                  *ngFor="let color of colors"
+                >
+                  {{ color.name }}
+                </option>
+              </select>
+              <span
+                (click)="color.disabled = !color.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+            <div class="col-6">
+              <label for="size">Tamaño: </label>
+              <select
+                name="size"
+                #size
+                disabled
+                [(ngModel)]="inventory.size"
+                class="form-control"
+              >
+                <option
+                  [selected]="size.name == inventory.size"
+                  *ngFor="let size of sizes"
+                >
+                  {{ size.name }}
+                </option>
+              </select>
+              <span
+                (click)="size.disabled = !size.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card col-5">
+        <div class="card-body">
+          <div class="row form-group">
+            <div class="col-4">
+              <label for="showcase">Escaparate: </label>
+              <select
+                name="showcase"
+                #showcase
+                disabled
+                [(ngModel)]="inventory.showcase"
+                class="form-control"
+              >
+                <option
+                  [value]="showcase.name"
+                  [selected]="showcase.name == inventory.showcase"
+                  *ngFor="let showcase of showcases"
+                >
+                  {{ showcase.name }}
+                </option>
+              </select>
+              <span
+                (click)="showcase.disabled = !showcase.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+            <div class="col-4">
+              <label for="row">Fila: </label>
+              <select name="row" #row disabled class="form-control">
+                <option
+                  [value]="row.name"
+                  [selected]="row.name == inventory.row"
+                  *ngFor="let row of rows"
+                >
+                  {{ row.name }}
+                </option>
+              </select>
+              <span
+                (click)="row.disabled = !row.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+            <div class="col-4">
+              <label for="column">Columna: </label>
+              <select
+                name="column"
+                #column
+                [(ngModel)]="inventory.column"
+                disabled
+                class="form-control"
+              >
+                <option
+                  [value]="column.name"
+                  [selected]="column.name == inventory.column"
+                  *ngFor="let column of columns"
+                >
+                  {{ column.name }}
+                </option>
+              </select>
+              <span
+                (click)="column.disabled = !column.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="state">Estado: </label>
+              <select
+                name="state"
+                #state
+                [(ngModel)]="inventory.state"
+                class="form-control"
+                disabled
+              >
+                <option
+                  [value]="state.name"
+                  [selected]="state.name == inventory.state"
+                  *ngFor="let state of states"
+                >
+                  {{ state.name }}
+                </option>
+              </select>
+              <span
+                (click)="state.disabled = !state.disabled"
+                class="config text-primary"
+                >Editar* <i class="fas fa-cog"></i
+              ></span>
+            </div>
+            <div class="col-6">
+              <label id="cantidad" for="cantidad">Cantidad</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <input
+                  id="cantidad"
+                  type="number"
+                  name="quantify"
+                  #quantify
+                  [(ngModel)]="inventory.quantify"
+                  disabled
+                  class="form-control text-center"
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                />
+
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <span
+                  (click)="quantify.disabled = !quantify.disabled"
+                  class="config text-primary"
+                  >Editar* <i class="fas fa-cog"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="image">Subir Imagen</label>
+              <div class="custom-file">
+                <input
+                  id="image"
+                  type="file"
+                  class="custom-file-input"
+                  id="validatedCustomFile "
+                  required
+                />
+                <label class="custom-file-label" for="validatedCustomFile "
+                  >Seleccionar imagen...</label
+                >
+                <div class="invalid-feedback">
+                  Example invalid custom file feedback
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary d-block">
+            Actualizar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

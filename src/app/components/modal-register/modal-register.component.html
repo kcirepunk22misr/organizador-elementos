@@ -1,0 +1,301 @@
+<button
+  type="button"
+  class="btn btn-success"
+  data-toggle="modal"
+  data-target="#exampleModal"
+  data-whatever="@getbootstrap"
+>
+  Agregar
+  <i class="fas fa-plus"></i>
+</button>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registar</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="guardar(f)">
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="name">Nombre: </label>
+              <input
+                type="text"
+                name="name"
+                #name="ngModel"
+                ngModel
+                class="form-control"
+                autocomplete="off"
+                placeholder="Nombre"
+                required
+              />
+              <span class="text-danger" *ngIf="name.invalid && name.touched">
+                El nombre es obligatorio
+              </span>
+            </div>
+            <div class="col-6">
+              <label for="group">Grupo: </label>
+              <select
+                name="group"
+                #group="ngModel"
+                ngModel
+                required
+                class="form-control"
+              >
+                <option selected>Seleccionar...</option>
+                <option [value]="group.name" *ngFor="let group of groups">{{
+                  group.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="group.invalid && group.touched">
+                El grupo es obligatorio
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="type">Tipo: </label>
+              <select
+                name="type"
+                #type="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="type.name" *ngFor="let type of types">{{
+                  type.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="type.invalid && type.touched">
+                El tipo es obligatorio
+              </span>
+            </div>
+            <div class="col-6">
+              <label for="marca">Marca: </label>
+              <select
+                name="marca"
+                #marca="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="marca.name" *ngFor="let marca of marcas">{{
+                  marca.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="marca.invalid && marca.touched">
+                La marca es obligatorio
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="color">Color: </label>
+              <select
+                name="color"
+                #color="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="color.name" *ngFor="let color of colors">{{
+                  color.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="color.invalid && color.touched">
+                El color es obligatorio
+              </span>
+            </div>
+            <div class="col-6">
+              <label for="size">Tamaño: </label>
+              <select
+                name="size"
+                #size="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="marca.name" *ngFor="let marca of sizes">{{
+                  marca.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="size.invalid && size.touched">
+                El tamaño es obligatorio
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-4">
+              <label for="showcase">Escaparate: </label>
+              <select
+                name="showcase"
+                #showcase="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option
+                  [value]="showcase.name"
+                  *ngFor="let showcase of showcases"
+                  >{{ showcase.name }}</option
+                >
+              </select>
+              <span
+                class="text-danger"
+                *ngIf="showcase.invalid && showcase.touched"
+              >
+                El escaparate es obligatorio
+              </span>
+            </div>
+            <div class="col-4">
+              <label for="row">Fila: </label>
+              <select
+                name="row"
+                #row="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="row.name" *ngFor="let row of rows">{{
+                  row.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="row.invalid && row.touched">
+                La fila es obligatorio
+              </span>
+            </div>
+            <div class="col-4">
+              <label for="column">Columna: </label>
+              <select
+                name="column"
+                #column="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="column.name" *ngFor="let column of columns">{{
+                  column.name
+                }}</option>
+              </select>
+              <span
+                class="text-danger"
+                *ngIf="column.invalid && column.touched"
+              >
+                La columna es obligatorio
+              </span>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="state">Estado: </label>
+              <select
+                name="state"
+                #state="ngModel"
+                ngModel
+                class="form-control"
+                required
+              >
+                <option selected disabled>Seleccionar...</option>
+                <option [value]="state.name" *ngFor="let state of states">{{
+                  state.name
+                }}</option>
+              </select>
+              <span class="text-danger" *ngIf="state.invalid && state.touched">
+                El estado es obligatorio
+              </span>
+            </div>
+            <div class="col-6">
+              <label id="cantidad" for="cantidad">Cantidad</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button
+                    (click)="AumentarAndDecrementar(-1)"
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <input
+                  id="cantidad"
+                  type="number"
+                  [(ngModel)]="num"
+                  name="quantify"
+                  class="form-control text-center"
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                />
+
+                <div class="input-group-prepend">
+                  <button
+                    (click)="AumentarAndDecrementar(1)"
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="image">Subir Imagen</label>
+              <div class="custom-file">
+                <input
+                  id="image"
+                  (change)="uploadImage($event)"
+                  type="file"
+                  class="custom-file-input"
+                  id="validatedCustomFile "
+                  required
+                />
+                <label class="custom-file-label" for="validatedCustomFile "
+                  >Seleccionar imagen...</label
+                >
+                <div class="invalid-feedback">
+                  Example invalid custom file feedback
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

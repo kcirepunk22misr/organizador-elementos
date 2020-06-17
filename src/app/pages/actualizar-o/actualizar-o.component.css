@@ -1,0 +1,7 @@
+.config {
+  cursor: pointer;
+}
+
+.config:hover {
+  text-decoration: underline;
+}

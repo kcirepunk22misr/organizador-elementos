@@ -1,0 +1,60 @@
+<table
+  style="min-width: 100%;"
+  class="table table-responsive table-striped table-hover mt-5"
+>
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Grupo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Color</th>
+      <th scope="col">Tamaño</th>
+      <th scope="col">Ubicacion</th>
+      <th scope="col">Fecha de ingreso</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Novedades</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Config</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let inventario of inventarios">
+      <td>{{ inventario.name }}</td>
+      <td>{{ inventario.group }}</td>
+      <td>{{ inventario.type }}</td>
+      <td>{{ inventario.marca }}</td>
+      <td>{{ inventario.color }}</td>
+      <td>{{ inventario.size }}</td>
+      <td>
+        {{ inventario.showcase }} - {{ inventario.row }} -
+        {{ inventario.column }}
+      </td>
+      <td>
+        {{ inventario.createdAt | amLocale: "es" | amDateFormat: "LL HH:mm" }}
+      </td>
+      <td>{{ inventario.state }}</td>
+      <td>hola</td>
+      <td>
+        <app-modal-image
+          [name]="inventario.name"
+          [id]="inventario._id"
+          [img]="inventario.img"
+        ></app-modal-image>
+      </td>
+      <td>{{ inventario.quantify }}</td>
+      <td>
+        <button
+          [routerLink]="['actualizar', inventario._id]"
+          class="btn btn-info mr-3"
+        >
+          <i class="far fa-edit"></i>
+        </button>
+        <button (click)="delete(inventario._id)" class="btn btn-danger">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
