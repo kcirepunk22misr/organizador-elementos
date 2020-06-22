@@ -26,9 +26,7 @@ export class ModalRegisterComponent implements OnInit {
 
   constructor(private _herramientasService: HerramientasService) {}
 
-  ngOnInit(): void {
-    this.getProperties();
-  }
+  ngOnInit(): void {}
 
   AumentarAndDecrementar(numero: number) {
     if (numero === -1) {

@@ -49,4 +49,15 @@ export class TableComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  search(search) {
+    if (search.value.length <= 0) {
+      this.getInventorys();
+      return;
+    }
+
+    this._herramientasService.search(search.value).subscribe((resp: any) => {
+      this.inventarios = resp.inventario;
+    });
+  }
 }

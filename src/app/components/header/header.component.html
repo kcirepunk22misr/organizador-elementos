@@ -30,8 +30,13 @@
             Administrador / Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a [routerLink]="['/propiedades', 'type']" class="dropdown-item">
+              Agregar Propiedades
+            </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Cerrar Session</a>
+            <button (click)="logout()" class="dropdown-item">
+              Cerrar Session
+            </button>
           </div>
         </li>
       </ul>

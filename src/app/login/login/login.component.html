@@ -1,1 +1,56 @@
-<p>login works!</p>
+<div class="contenedor-img">
+  <div class="form-structor">
+    <div class="pronti">
+      <h3 class="title-prontiapp">Desarrollado Por: <span>KcirePunk</span></h3>
+    </div>
+    <form #f="ngForm" (ngSubmit)="login(f)" class="signup">
+      <div class="form-holder form-gropu">
+        <!-- <input type="text" class="input" placeholder="Name" /> -->
+        <input
+          type="email"
+          name="email"
+          autocomplete="off"
+          #email="ngModel"
+          ngModel
+          class="input form-control"
+          placeholder="Correo"
+          required
+          email
+        />
+        <input
+          type="password"
+          name="password"
+          autocomplete="off"
+          #password="ngModel"
+          ngModel
+          class="input form-control"
+          placeholder="Contraseña"
+          required
+        />
+        <div
+          *ngIf="email.invalid && email.touched"
+          class="text-center mt-2 mb-2 text-danger"
+        >
+          <small>
+            El email es obligatorio
+          </small>
+        </div>
+        <div
+          *ngIf="password.invalid && password.touched"
+          class="text-center mt-2 mb-2 text-danger"
+        >
+          <small>
+            La contraseña es obligario
+          </small>
+        </div>
+         <div *ngIf="error" class="text-center mt-2 mb-2 text-danger">
+          <small>
+            {{ error }}
+          </small>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">Iniciar Session</button>
+    </form>
+    <div class="login slide-up"></div>
+  </div>
+</div>

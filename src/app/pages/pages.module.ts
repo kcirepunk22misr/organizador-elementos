@@ -6,9 +6,10 @@ import { ComponentsModule } from '../components/components.module';
 import { PagesroutingModule } from './pagesrouting.module';
 import { MomentModule } from 'angular2-moment';
 import { FormsModule } from '@angular/forms';
+import { PropiedadesComponent } from './propiedades/propiedades.component';
 
 @NgModule({
-  declarations: [ActualizarOComponent, InicioComponent],
+  declarations: [ActualizarOComponent, InicioComponent, PropiedadesComponent],
   imports: [
     CommonModule,
     ComponentsModule,

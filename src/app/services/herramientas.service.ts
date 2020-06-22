@@ -67,4 +67,29 @@ export class HerramientasService {
       throw err;
     }
   }
+
+  saveProperties(params: string, propiedad: string) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    let body = JSON.stringify(propiedad);
+
+    return this._http.post(`${this.URL}/properties/${params}`, body, {
+      headers,
+    });
+  }
+
+  search(busqueda: string) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    let busquedaURl = encodeURI(busqueda);
+    return this._http.get(`${this.URL}/inventorys/${busquedaURl}`, { headers });
+  }
+
+  addReport(report) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    let body = JSON.stringify(report);
+
+    return this._http.post(`${this.URL}/report`, body, { headers });
+  }
 }

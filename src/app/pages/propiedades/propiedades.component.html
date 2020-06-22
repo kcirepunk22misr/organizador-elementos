@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row mt-5 shadow bg-white p-5">
+    <div class="col-12 col-md-4">
+      <div class="form-group">
+        <label for="propiedades">Propiedades</label>
+        <select
+          name="properties"
+          (change)="propiedadUrl($event)"
+          class="form-control"
+          id="propiedades"
+        >
+          <option
+            [selected]="pd.url == urlPropiead"
+            [value]="pd.url"
+            *ngFor="let pd of propiedades"
+            >{{ pd.name }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Agregar Propiedad</h4>
+        </div>
+        <div class="card-body">
+          <form #f="ngForm" (ngSubmit)="guardar(f)">
+            <div class="form-group">
+              <input
+                name="name"
+                ngModel
+                required
+                type="text"
+                class="form-control"
+              />
+            </div>
+            <button [disabled]="f.invalid" class="btn btn-outline-primary">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="ok" class="col-12">
+      <div class="alert alert-success mt-3" role="alert">
+        Guardado Correctamente
+      </div>
+    </div>
+  </div>
+</div>

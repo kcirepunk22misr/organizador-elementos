@@ -3,7 +3,7 @@
   type="button"
   class="btn btn-primary"
   data-toggle="modal"
-  [attr.data-target]="'#modal' + id"
+  [attr.data-target]="'#modalimg' + id"
 >
   <i class="far fa-images"></i>
 </button>
@@ -11,8 +11,8 @@
 <!-- Modal -->
 <div
   class="modal fade"
-  [id]="'modal' + id"
-  tabindex="-1"
+  [id]="'modalimg' + id"
+  tabindex="1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -32,6 +32,7 @@
       </div>
       <div class="modal-body">
         <img *ngIf="img" class="img-fluid" [src]="img" />
+        <p>No tiene ninguna imagen registrada</p>
       </div>
     </div>
   </div>

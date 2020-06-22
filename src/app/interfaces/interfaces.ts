@@ -8,6 +8,27 @@ export interface RespInventory {
   inventario: Inventory;
 }
 
+export interface Lender {
+  _id: string;
+  name: string;
+  surname: string;
+  email: string;
+  organization: string;
+  number: number;
+}
+
+export interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  sex: string;
+  role: string;
+  createdAt: Date;
+  updateAt: Date;
+  active: boolean;
+}
+
 export interface Inventory {
   _id: string;
   name: string;

@@ -1,6 +1,19 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+      <input
+        #buscar
+        (keyup)="search(buscar)"
+        type="text"
+        class="form-control"
+      />
+    </div>
+  </div>
+</div>
+
 <table
   style="min-width: 100%;"
-  class="table table-responsive table-striped table-hover mt-5"
+  class="table container mx-auto table-responsive table-striped table-hover mt-5"
 >
   <thead>
     <tr>
@@ -35,7 +48,15 @@
         {{ inventario.createdAt | amLocale: "es" | amDateFormat: "LL HH:mm" }}
       </td>
       <td>{{ inventario.state }}</td>
-      <td>hola</td>
+      <td>
+        <app-modal-reports
+          [reports]="inventario.reports"
+          [name]="inventario.name"
+          [id]="inventario._id"
+          [img]="inventario.img"
+        >
+        </app-modal-reports>
+      </td>
       <td>
         <app-modal-image
           [name]="inventario.name"

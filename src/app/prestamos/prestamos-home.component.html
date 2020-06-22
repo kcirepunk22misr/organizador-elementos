@@ -1,0 +1,72 @@
+<app-header></app-header>
+<!-- <app-listar-herramientas></app-listar-herramientas> -->
+
+<div style="max-width: 100%; min-height: 100vh; background: #fff;" class="row">
+  <div class="col-12 col-md-3" style="overflow-y: auto; max-height: 100vh;">
+    <div
+      class="nav flex-column nav-pills"
+      id="v-pills-tab"
+      role="tablist"
+      aria-orientation="vertical"
+    >
+      <button class="btn btn-outline-primary shadow">
+        <i class="fas fa-plus"></i> Agregar Prestamista
+      </button>
+      <a
+        class="nav-link"
+        id="v-pills-profile-tab"
+        data-toggle="pill"
+        href="#v-pills-profile"
+        role="tab"
+        [routerLink]="['/prestamos', lender._id]"
+        routerLinkActive="active"
+        aria-controls="v-pills-profile"
+        aria-selected="false"
+        *ngFor="let lender of lenders"
+      >
+        {{ lender.name }} - {{ lender.organization }}
+      </a>
+    </div>
+  </div>
+  <div class="col-12 col-md-5">
+    <router-outlet (inventarios)="prueba($event)"></router-outlet>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="row border">
+      <div class="col-12">
+        <h2 class="text-center">Sistema De Prestamo</h2>
+      </div>
+      <div class="col-12 mt-3">
+        <h3 class="lead"><strong>Nombre:</strong> Prestamista</h3>
+        <h3 class="lead"><strong>Organizacion:</strong> Sin Nombre</h3>
+      </div>
+      <div class="col-12 mt-3">
+        <ul class="list-group list-group-flush">
+          <div class="list-group-item d-flex justify-content-between">
+            <h4>Martillo - <small>50</small></h4>
+
+            <button class="btn btn-outline-danger">
+              <i class="fas ml-auto fa-times"></i>
+            </button>
+          </div>
+          <div class="list-group-item d-flex justify-content-between">
+            <h4>Martillo - <small>50</small></h4>
+
+            <button class="btn btn-outline-danger">
+              <i class="fas ml-auto fa-times"></i>
+            </button>
+          </div>
+          <div class="list-group-item d-flex justify-content-between">
+            <h4>Martillo - <small>50</small></h4>
+
+            <button class="btn btn-outline-danger">
+              <i class="fas ml-auto fa-times"></i>
+            </button>
+          </div>
+        </ul>
+      </div>
+
+      <button class="btn btn-outline-success btn-block">Prestar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="tab-content" id="v-pills-tabContent">
+  <div
+    class="tab-pane fade show active"
+    id="v-pills-home"
+    role="tabpanel"
+    aria-labelledby="v-pills-home-tab"
+  >
+    <div class="list-group">
+      <div
+        (click)="guardarHerramienta(inventory)"
+        class="list-group-item list-group-item-action d-flex justify-content-between"
+        *ngFor="let inventory of inventorys"
+      >
+        <h3>
+          {{ inventory.name }} - <small>{{ inventory.quantify }}</small>
+        </h3>
+        <!-- <app-modal-image
+          [id]="inventory._id"
+          [name]="inventory.name"
+          [img]="inventory.img"
+        ></app-modal-image> -->
+
+        <img width="30" *ngIf="inventory.img" [src]="inventory.img" alt="" />
+        <img
+          width="30"
+          *ngIf="!inventory.img"
+          src="https://www.cuestalibros.com/content/images/thumbs/default-image_550.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>

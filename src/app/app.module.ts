@@ -12,9 +12,16 @@ import { PagesModule } from './pages/pages.module';
 import { LoginComponent } from './login/login/login.component';
 import { ComponentsModule } from './components/components.module';
 import { PagesComponent } from './pages/pages.component';
+import { PrestamosHomeComponent } from './prestamos/prestamos-home.component';
+import { PrestamosModule } from './prestamos/prestamos.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PagesComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    PagesComponent,
+    PrestamosHomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +30,7 @@ import { PagesComponent } from './pages/pages.component';
     MomentModule,
     PagesModule,
     ComponentsModule,
+    PrestamosModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

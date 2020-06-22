@@ -10,6 +10,7 @@ import { ModalRegisterComponent } from './modal-register/modal-register.componen
 import { TableComponent } from './table/table.component';
 import { MomentModule } from 'angular2-moment';
 import { FormsModule } from '@angular/forms';
+import { ModalReportsComponent } from './modal-reports/modal-reports.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     ModalImageComponent,
     ModalRegisterComponent,
     TableComponent,
+    ModalReportsComponent,
   ],
   imports: [CommonModule, RouterModule, MomentModule, FormsModule],
   exports: [
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     ModalImageComponent,
     ModalRegisterComponent,
     TableComponent,
+    ModalReportsComponent,
   ],
 })
 export class ComponentsModule {}
