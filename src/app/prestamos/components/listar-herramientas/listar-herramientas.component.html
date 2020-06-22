@@ -5,14 +5,16 @@
     role="tabpanel"
     aria-labelledby="v-pills-home-tab"
   >
-    <div class="list-group">
+    <div style="height: 300px; overflow-y: auto;" class="list-group">
       <div
         (click)="guardarHerramienta(inventory)"
+        style="cursor: pointer;"
         class="list-group-item list-group-item-action d-flex justify-content-between"
         *ngFor="let inventory of inventorys"
       >
         <h3>
-          {{ inventory.name }} - <small>{{ inventory.quantify }}</small>
+          {{ inventory.name }} -
+          <small><strong>Cantidad: </strong>{{ inventory.quantify }}</small>
         </h3>
         <!-- <app-modal-image
           [id]="inventory._id"

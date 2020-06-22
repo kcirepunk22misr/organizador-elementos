@@ -20,4 +20,16 @@ export class LenderService {
       })
     );
   }
+
+  getLenderById(id: string): Observable<Lender> {
+    return this._http.get<Lender>(`${this.URL}/lender/${id}`).pipe(
+      map((resp: any) => {
+        return resp.lender;
+      })
+    );
+  }
+
+  prestarHerramienta(lenderId: string, inventarioId) {
+    return this._http.post(`${this.URL}/prestar/${lenderId}`, inventarioId);
+  }
 }

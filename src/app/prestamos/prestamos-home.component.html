@@ -1,7 +1,15 @@
 <app-header></app-header>
 <!-- <app-listar-herramientas></app-listar-herramientas> -->
 
-<div style="max-width: 100%; min-height: 100vh; background: #fff;" class="row">
+<div
+  style="
+    max-width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    background: #fff;
+  "
+  class="row mx-auto"
+>
   <div class="col-12 col-md-3" style="overflow-y: auto; max-height: 100vh;">
     <div
       class="nav flex-column nav-pills"
@@ -29,7 +37,7 @@
     </div>
   </div>
   <div class="col-12 col-md-5">
-    <router-outlet (inventarios)="prueba($event)"></router-outlet>
+    <router-outlet></router-outlet>
   </div>
   <div class="col-12 col-md-4">
     <div class="row border">
@@ -37,12 +45,32 @@
         <h2 class="text-center">Sistema De Prestamo</h2>
       </div>
       <div class="col-12 mt-3">
-        <h3 class="lead"><strong>Nombre:</strong> Prestamista</h3>
-        <h3 class="lead"><strong>Organizacion:</strong> Sin Nombre</h3>
+        <h3 class="lead">
+          <strong>Nombre:</strong> {{ lenderById.name || "Sin Nombre" }}
+        </h3>
+        <h3 class="lead">
+          <strong>Organizacion:</strong>
+          {{ lenderById.organization || "Sin Organizacion" }}
+        </h3>
       </div>
-      <div class="col-12 mt-3">
+      <div style="overflow-y: auto; max-height: 400px;" class="col-12 mt-3">
         <ul class="list-group list-group-flush">
-          <div class="list-group-item d-flex justify-content-between">
+          <div
+            *ngFor="let ld of lenderPrestar"
+            class="list-group-item d-flex justify-content-between"
+          >
+            <h4>
+              {{ ld.name }} - <small>{{ ld.quantify }}</small>
+            </h4>
+
+            <button
+              (click)="borrarPestrarHerramienta(ld._id)"
+              class="btn btn-outline-danger"
+            >
+              <i class="fas ml-auto fa-times"></i>
+            </button>
+          </div>
+          <!-- <div class="list-group-item d-flex justify-content-between">
             <h4>Martillo - <small>50</small></h4>
 
             <button class="btn btn-outline-danger">
@@ -55,18 +83,16 @@
             <button class="btn btn-outline-danger">
               <i class="fas ml-auto fa-times"></i>
             </button>
-          </div>
-          <div class="list-group-item d-flex justify-content-between">
-            <h4>Martillo - <small>50</small></h4>
-
-            <button class="btn btn-outline-danger">
-              <i class="fas ml-auto fa-times"></i>
-            </button>
-          </div>
+          </div> -->
         </ul>
       </div>
 
-      <button class="btn btn-outline-success btn-block">Prestar</button>
+      <button
+        (click)="prestarHerramienta()"
+        class="btn btn-outline-success btn-block"
+      >
+        Prestar
+      </button>
     </div>
   </div>
 </div>

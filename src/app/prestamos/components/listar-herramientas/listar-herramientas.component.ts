@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Inventory } from 'src/app/interfaces/interfaces';
 import { HerramientasService } from 'src/app/services/herramientas.service';
+import { PrestamosService } from 'src/app/services/prestamos.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-herramientas',
@@ -11,12 +13,19 @@ export class ListarHerramientasComponent implements OnInit {
   inventorys: Inventory[] = [];
   @Output() inventarios: EventEmitter<Inventory>;
 
-  constructor(private _herramientaSevice: HerramientasService) {
+  constructor(
+    private _herramientaSevice: HerramientasService,
+    private _prestarService: PrestamosService,
+    private _activateRoute: ActivatedRoute
+  ) {
     this.inventarios = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.getTools();
+    this._activateRoute.params.subscribe((params) => {
+      this._prestarService.emitChange(params['id']);
+    });
   }
 
   getTools() {
@@ -26,7 +35,6 @@ export class ListarHerramientasComponent implements OnInit {
   }
 
   guardarHerramienta(inventory: Inventory) {
-    console.log(inventory);
-    this.inventarios.emit(inventory);
+    this._prestarService.emitChange(inventory);
   }
 }
