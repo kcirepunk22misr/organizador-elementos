@@ -32,4 +32,10 @@ export class LenderService {
   prestarHerramienta(lenderId: string, inventarioId) {
     return this._http.post(`${this.URL}/prestar/${lenderId}`, inventarioId);
   }
+
+  createLender(lender: Lender): Observable<Lender> {
+    return this._http
+      .post(`${this.URL}/lender`, lender)
+      .pipe(map((resp: any) => resp.lender));
+  }
 }

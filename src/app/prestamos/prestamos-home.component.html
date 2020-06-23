@@ -1,5 +1,103 @@
 <app-header></app-header>
-<!-- <app-listar-herramientas></app-listar-herramientas> -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="lenderModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Registrar Prestamista
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formLender="ngForm" (ngSubmit)="saveLender(formLender)">
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="name">Nombre: </label>
+              <input
+                type="text"
+                name="name"
+                ngModel
+                placeholder="Nombre"
+                class="form-control"
+              />
+            </div>
+            <div class="col-6">
+              <label for="surname">Apellidos: </label>
+              <input
+                type="text"
+                name="surname"
+                ngModel
+                placeholder="Apellidos"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="email">Correo:</label>
+              <input
+                type="email"
+                name="email"
+                ngModel
+                placeholder="ejemplo@gmail.com"
+                class="form-control"
+              />
+            </div>
+            <div class="col-6">
+              <label for="organization">Organizacion</label>
+              <input
+                name="organization"
+                ngModel
+                type="text"
+                placeholder="Eventos, Bodas, Cumpleaños..."
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <label for="number">Telefono</label>
+              <input
+                type="tel"
+                name="number"
+                ngModel
+                placeholder="+57 3034254354"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div
   style="
@@ -17,7 +115,12 @@
       role="tablist"
       aria-orientation="vertical"
     >
-      <button class="btn btn-outline-primary shadow">
+      <button
+        class="btn btn-outline-primary shadow"
+        type="button"
+        data-toggle="modal"
+        data-target="#lenderModal"
+      >
         <i class="fas fa-plus"></i> Agregar Prestamista
       </button>
       <a
@@ -57,6 +160,7 @@
         <ul class="list-group list-group-flush">
           <div
             *ngFor="let ld of lenderPrestar"
+            (click)="modificarCantidad(ld._id)"
             class="list-group-item d-flex justify-content-between"
           >
             <h4>

@@ -6,6 +6,7 @@ import { ListarHerramientasComponent } from './components/listar-herramientas/li
 import PrestamosRouting from './prestamos.routes';
 import { ComponentsModule } from '../components/components.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListarHerramientasComponent],
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     PrestamosRouting,
     ComponentsModule,
     HttpClientModule,
+    FormsModule,
   ],
   exports: [ListarHerramientasComponent],
 })
