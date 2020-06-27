@@ -1,0 +1,29 @@
+.contenedor-recibo {
+  max-width: 700px;
+  width: 90%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 25px;
+}
+
+.contenedor-prestadas {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+  margin-top: 12px;
+}
+
+.contenedor-prestadas {
+  display: flex;
+  padding: 15px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: 4px solid #ccc;
+}
+
+.contenedor-prestadas.bien {
+  text-decoration: line-through;
+}

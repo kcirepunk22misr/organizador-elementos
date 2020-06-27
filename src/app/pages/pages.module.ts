@@ -7,9 +7,10 @@ import { PagesroutingModule } from './pagesrouting.module';
 import { MomentModule } from 'angular2-moment';
 import { FormsModule } from '@angular/forms';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { ReciboPrestamosComponent } from './recibo-prestamos/recibo-prestamos.component';
 
 @NgModule({
-  declarations: [ActualizarOComponent, InicioComponent, PropiedadesComponent],
+  declarations: [ActualizarOComponent, InicioComponent, PropiedadesComponent, ReciboPrestamosComponent],
   imports: [
     CommonModule,
     ComponentsModule,

@@ -10,11 +10,15 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   private URL = environment.url;
-  user: User;
-  token: string;
+  public user: User;
+  public token: string;
 
   constructor(private _http: HttpClient, private router: Router) {
     this.cargarStorage();
+  }
+
+  registrarUsuario(user) {
+    return this._http.post(`${this.URL}/user`, user);
   }
 
   estaLogueado() {

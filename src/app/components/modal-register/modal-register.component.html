@@ -9,7 +9,6 @@
   Agregar
   <i class="fas fa-plus"></i>
 </button>
-
 <div
   class="modal fade"
   id="exampleModal"
@@ -59,7 +58,7 @@
                 required
                 class="form-control"
               >
-                <option selected>Seleccionar...</option>
+                <option disabled selected>Seleccionar...</option>
                 <option [value]="group.name" *ngFor="let group of groups">{{
                   group.name
                 }}</option>
@@ -273,15 +272,12 @@
                   (change)="uploadImage($event)"
                   type="file"
                   class="custom-file-input"
+                  [class.is-valid]="image"
                   id="validatedCustomFile "
-                  required
                 />
-                <label class="custom-file-label" for="validatedCustomFile "
-                  >Seleccionar imagen...</label
-                >
-                <div class="invalid-feedback">
-                  Example invalid custom file feedback
-                </div>
+                <label class="custom-file-label" for="validatedCustomFile ">
+                  {{ !image ? "Seleccionar una image..." : image.name }}
+                </label>
               </div>
             </div>
           </div>

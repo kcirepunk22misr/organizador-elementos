@@ -48,6 +48,7 @@ export class PropiedadesComponent implements OnInit {
         (resp: any) => {
           if (resp.ok) {
             this.ok = true;
+            f.reset();
             setTimeout(() => {
               this.ok = false;
             }, 5000);

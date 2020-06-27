@@ -24,7 +24,7 @@
           <h4 class="card-title">Agregar Propiedad</h4>
         </div>
         <div class="card-body">
-          <form #f="ngForm" (ngSubmit)="guardar(f)">
+          <form autocomplete="off" #f="ngForm" (ngSubmit)="guardar(f)">
             <div class="form-group">
               <input
                 name="name"

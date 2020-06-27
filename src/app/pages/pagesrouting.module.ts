@@ -5,6 +5,7 @@ import { ActualizarOComponent } from './actualizar-o/actualizar-o.component';
 import { PagesComponent } from './pages.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { ReciboPrestamosComponent } from './recibo-prestamos/recibo-prestamos.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'inicio', component: InicioComponent },
       { path: 'propiedades/:propiedad', component: PropiedadesComponent },
       { path: 'actualizar/:id', component: ActualizarOComponent },
+      { path: 'recibo/:id', component: ReciboPrestamosComponent },
     ],
   },
 ];

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:3000/api',
+  url: 'https://organizador-app-22.herokuapp.com/api',
+  // url: 'http://localhost:3000/api',
 };
 
 /*

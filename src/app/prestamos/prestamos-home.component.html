@@ -106,7 +106,7 @@
     min-height: 100vh;
     background: #fff;
   "
-  class="row mx-auto"
+  class="row mx-auto animate__animated animate__backInLeft"
 >
   <div class="col-12 col-md-3" style="overflow-y: auto; max-height: 100vh;">
     <div
@@ -136,6 +136,12 @@
         *ngFor="let lender of lenders"
       >
         {{ lender.name }} - {{ lender.organization }}
+        <a
+          [routerLink]="['/recibo', lender._id]"
+          class="btn btn-sm btn-secondary btn-block mt-2"
+        >
+          Mas Informacion
+        </a>
       </a>
     </div>
   </div>

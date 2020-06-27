@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class TableComponent implements OnInit, OnDestroy {
   inventarios = [];
+  p: number = 1;
 
   constructor(private _herramientasService: HerramientasService) {}
 

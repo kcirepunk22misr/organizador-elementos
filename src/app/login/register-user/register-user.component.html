@@ -1,0 +1,58 @@
+<div class="contenedor-img">
+  <div class="form-structor animate__animated animate__zoomIn">
+    <div class="pronti">
+      <h3 class="title-prontiapp">Desarrollado Por: <span>KcirePunk</span></h3>
+    </div>
+    <form [formGroup]="forma" (ngSubmit)="guardar()" class="signup">
+      <div class="form-holder form-gropu">
+        <!-- <input type="text" class="input" placeholder="Name" /> -->
+
+        <input
+          formControlName="firstName"
+          type="text"
+          class="input form-control"
+          placeholder="Nombre"
+          [class.is-invalid]="validarCampos('firstName')"
+        />
+        <input
+          formControlName="lastName"
+          type="text"
+          class="input form-control"
+          placeholder="apellido"
+          [class.is-invalid]="validarCampos('lastName')"
+        />
+
+        <select
+          formControlName="sex"
+          class="form-control form-control-sm"
+          [class.is-invalid]="validarCampos('sex')"
+        >
+          <option selected value="masculino">masculino</option>
+          <option value="femenino">femenino</option>
+        </select>
+        <input
+          formControlName="email"
+          type="email"
+          class="input form-control"
+          placeholder="Correo"
+          [class.is-invalid]="validarCampos('email')"
+        />
+        <input
+          formControlName="password"
+          type="password"
+          class="input form-control"
+          placeholder="Contraseña"
+          [class.is-invalid]="validarCampos('password')"
+        />
+      </div>
+      <button type="submit" class="submit-btn">Registarse</button>
+    </form>
+    <div class="login slide-up">
+      <div class="center">
+        <h2 class="form-title" routerLink="/" id="login">
+          <span>or</span>Inicio
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

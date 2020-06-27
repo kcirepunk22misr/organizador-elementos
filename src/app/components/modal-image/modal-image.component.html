@@ -12,7 +12,7 @@
 <div
   class="modal fade"
   [id]="'modalimg' + id"
-  tabindex="1"
+  tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -32,7 +32,7 @@
       </div>
       <div class="modal-body">
         <img *ngIf="img" class="img-fluid" [src]="img" />
-        <p>No tiene ninguna imagen registrada</p>
+        <p *ngIf="!img">No tiene ninguna imagen registrada</p>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import { LenderService } from '../services/lender.service';
 import { PrestamosService } from '../services/prestamos.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-prestamos-home',
@@ -79,7 +80,11 @@ export class PrestamosHomeComponent implements OnInit, DoCheck {
       .prestarHerramienta(this.lenderId, { prestar: prestar })
       .subscribe(
         (resp) => {
-          console.log(resp);
+          this.lenderPrestar = [];
+          Swal.fire({
+            icon: 'success',
+            title: 'Herramienta Prestada!!',
+          });
         },
         (err) => {
           console.log(err);

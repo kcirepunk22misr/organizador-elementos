@@ -13,10 +13,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <app-modal-register></app-modal-register>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <app-modal-register></app-modal-register>
+        </li>
         <li class="nav-item dropdown">
           <a
             class="nav-link active dropdown-toggle"
@@ -27,9 +28,19 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Administrador / Usuario
+            {{ user.firstName }} {{ user.lastName }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a [routerLink]="['/prestamos']" class="dropdown-item">
+              Sistemas De Prestamos
+            </a>
+            <a
+              *ngIf="user.role === 'ADMIN_ROLE'"
+              [routerLink]="['/registrarse']"
+              class="dropdown-item"
+            >
+              Nuevo Usuario
+            </a>
             <a [routerLink]="['/propiedades', 'type']" class="dropdown-item">
               Agregar Propiedades
             </a>

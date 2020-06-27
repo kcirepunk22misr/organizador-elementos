@@ -1,6 +1,7 @@
 // Modulos
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 
 // Componentes
 import { CommonModule } from '@angular/common';
@@ -20,7 +21,13 @@ import { ModalReportsComponent } from './modal-reports/modal-reports.component';
     TableComponent,
     ModalReportsComponent,
   ],
-  imports: [CommonModule, RouterModule, MomentModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MomentModule,
+    FormsModule,
+    NgxPaginationModule,
+  ],
   exports: [
     HeaderComponent,
     ModalImageComponent,

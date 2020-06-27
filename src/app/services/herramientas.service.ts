@@ -46,12 +46,12 @@ export class HerramientasService {
 
   async uploadImage(file: File) {
     let formData = new FormData();
-    formData.append('upload_preset', 'e5kwuazs');
+    formData.append('upload_preset', 'bmqfy9iw');
     formData.append('file', file);
 
     try {
       const resp = await fetch(
-        'https://api.cloudinary.com/v1_1/disnyka7g/upload',
+        'https://api.cloudinary.com/v1_1/dwalr0wvh/upload',
         {
           method: 'POST',
           body: formData,

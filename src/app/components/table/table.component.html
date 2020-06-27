@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container animate__animated animate__pulse">
   <div class="row mt-5">
     <div class="col-12">
       <input
@@ -11,9 +11,17 @@
   </div>
 </div>
 
+<div class="container row ml-4 mt-2">
+  <div class="col-6">
+    <button class="btn btn-secondary" (click)="getInventorys()">
+      Actualizar <i class="fas fa-spinner"></i>
+    </button>
+  </div>
+</div>
+
 <table
   style="min-width: 100%;"
-  class="table container mx-auto table-responsive table-striped table-hover mt-5"
+  class="table container mx-auto table-responsive table-striped table-hover mt-2 animate__animated animate__fadeIn"
 >
   <thead>
     <tr>
@@ -33,7 +41,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let inventario of inventarios">
+    <tr
+      *ngFor="
+        let inventario of inventarios
+          | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
       <td>{{ inventario.name }}</td>
       <td>{{ inventario.group }}</td>
       <td>{{ inventario.type }}</td>
@@ -79,3 +92,7 @@
     </tr>
   </tbody>
 </table>
+
+<div class="container d-flex justify-content-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

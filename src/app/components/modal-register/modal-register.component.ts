@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HerramientasService } from '../../services/herramientas.service';
 import { Properties } from '../../interfaces/interfaces';
 import { NgForm } from '@angular/forms';
@@ -78,6 +78,7 @@ export class ModalRegisterComponent implements OnInit {
                 img: resp.secure_url,
               })
               .subscribe((respImage) => {
+                console.log(respInventory);
                 Swal.fire(
                   'Guardado Exitosamente',
                   `Agregago a la tabla`,
@@ -86,6 +87,7 @@ export class ModalRegisterComponent implements OnInit {
               });
           });
         } else {
+          console.log(respInventory);
           Swal.fire('Guardado Exitosamente', `Agregago a la tabla`, 'success');
         }
       });
