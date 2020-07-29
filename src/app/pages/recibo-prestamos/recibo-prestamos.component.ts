@@ -95,6 +95,7 @@ export class ReciboPrestamosComponent implements OnInit, OnDestroy {
           'success'
         );
 
+        this.entrega = [];
         this.ngOnInit();
       });
   }

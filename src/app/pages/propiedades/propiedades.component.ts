@@ -18,7 +18,7 @@ export class PropiedadesComponent implements OnInit {
     { name: 'Color', url: 'color' },
     { name: 'Escaparate', url: 'showcase' },
     { name: 'Fila', url: 'row' },
-    { name: 'Column', url: 'column' },
+    { name: 'Columna', url: 'column' },
   ];
 
   urlPropiead: string;
@@ -37,7 +37,8 @@ export class PropiedadesComponent implements OnInit {
   }
 
   propiedadUrl(propiedad) {
-    console.log(propiedad.target.value);
+    console.log(this.urlPropiead);
+
     this.router.navigate(['/propiedades', propiedad.target.value]);
   }
 

@@ -49,6 +49,20 @@ export class ActualizarOComponent implements OnInit, OnDestroy {
     );
   }
 
+  AumentarAndDecrementar(numero: number) {
+    if (numero === -1) {
+      this.inventory.quantify--;
+    }
+
+    if (numero === 1) {
+      this.inventory.quantify++;
+    }
+
+    if (this.inventory.quantify < 1) {
+      this.inventory.quantify = 1;
+    }
+  }
+
   ngOnInit(): void {
     this.getInventoryById();
     this.getProperties();

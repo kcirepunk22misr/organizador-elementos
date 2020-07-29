@@ -8,9 +8,16 @@ import { MomentModule } from 'angular2-moment';
 import { FormsModule } from '@angular/forms';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { ReciboPrestamosComponent } from './recibo-prestamos/recibo-prestamos.component';
+import { DeletePropiedadComponent } from './delete-propiedad/delete-propiedad.component';
 
 @NgModule({
-  declarations: [ActualizarOComponent, InicioComponent, PropiedadesComponent, ReciboPrestamosComponent],
+  declarations: [
+    ActualizarOComponent,
+    InicioComponent,
+    PropiedadesComponent,
+    ReciboPrestamosComponent,
+    DeletePropiedadComponent,
+  ],
   imports: [
     CommonModule,
     ComponentsModule,

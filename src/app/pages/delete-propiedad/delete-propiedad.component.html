@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mt-5 shadow bg-white p-5">
+    <div class="col-12 col-md-4">
+      <div class="form-group">
+        <label for="propiedades">Propiedades</label>
+        <select
+          name="properties"
+          class="form-control"
+          id="propiedades"
+          (change)="propiedadUrl($event)"
+        >
+          <option
+            *ngFor="let p of propiedades"
+            [value]="p.url"
+            [selected]="p.url === urlPropiedad"
+          >
+            {{ p.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Eliminar Propiedad</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li
+              *ngFor="let p of propiedad"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+            >
+              {{ p.name }}
+              <button class="btn btn-sm btn-danger mr-left" (click)="borrarProperties(p._id)">
+                <i
+                  style="font-size: 18px;"
+                  class="fa fa-window-close"
+                  aria-hidden="true"
+
+                ></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

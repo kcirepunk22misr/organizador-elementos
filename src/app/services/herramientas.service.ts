@@ -92,4 +92,8 @@ export class HerramientasService {
 
     return this._http.post(`${this.URL}/report`, body, { headers });
   }
+
+  deleteProperties(tipo: string, id: string) {
+    return this._http.delete(`${this.URL}/properties/${tipo}/${id}`);
+  }
 }

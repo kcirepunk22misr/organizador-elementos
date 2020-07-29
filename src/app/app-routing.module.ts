@@ -5,8 +5,8 @@ import { BlockLoginGuard } from './guards/block-login.guard';
 import { RegisterUserComponent } from './login/register-user/register-user.component';
 
 const routes: Routes = [
-  { path: 'login', canActivate: [BlockLoginGuard], component: LoginComponent },
   { path: 'registrarse', component: RegisterUserComponent },
+  { path: 'login', canActivate: [BlockLoginGuard], component: LoginComponent },
 ];
 
 @NgModule({

@@ -33,7 +33,11 @@
             </h3>
           </div>
           <div class="prestadas-image">
-            <button class="btn btn-primary">foto</button>
+            <app-modal-image
+              [id]="inventario.inventarioId._id"
+              [name]="inventario.inventarioId.name"
+              [img]="inventario.inventarioId.img"
+            ></app-modal-image>
           </div>
           <div class="dropdown-divider"></div>
         </div>

@@ -26,7 +26,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #formLender="ngForm" (ngSubmit)="saveLender(formLender)">
+        <form
+          autocomplete="off"
+          #formLender="ngForm"
+          (ngSubmit)="saveLender(formLender)"
+        >
           <div class="row form-group">
             <div class="col-6">
               <label for="name">Nombre: </label>
@@ -36,6 +40,7 @@
                 ngModel
                 placeholder="Nombre"
                 class="form-control"
+                autocomplete="off"
               />
             </div>
             <div class="col-6">
@@ -46,6 +51,7 @@
                 ngModel
                 placeholder="Apellidos"
                 class="form-control"
+                autocomplete="off"
               />
             </div>
           </div>
@@ -58,6 +64,7 @@
                 ngModel
                 placeholder="ejemplo@gmail.com"
                 class="form-control"
+                autocomplete="off"
               />
             </div>
             <div class="col-6">
@@ -68,6 +75,7 @@
                 type="text"
                 placeholder="Eventos, Bodas, Cumpleaños..."
                 class="form-control"
+                autocomplete="off"
               />
             </div>
           </div>
@@ -80,6 +88,7 @@
                 ngModel
                 placeholder="+57 3034254354"
                 class="form-control"
+                maxlength="12"
               />
             </div>
           </div>
@@ -142,6 +151,9 @@
         >
           Mas Informacion
         </a>
+        <button (click)="deleteLender()" class="btn mt-1 btn-danger btn-sm">
+          Borrar
+        </button>
       </a>
     </div>
   </div>
@@ -199,6 +211,7 @@
 
       <button
         (click)="prestarHerramienta()"
+        [disabled]="lenderPrestar.length === 0"
         class="btn btn-outline-success btn-block"
       >
         Prestar

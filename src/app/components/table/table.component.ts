@@ -36,7 +36,7 @@ export class TableComponent implements OnInit, OnDestroy {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Si, eliminar',
     }).then((result) => {
       if (result.value) {
         this._herramientasService.deleteInventory(id).subscribe((resp: any) => {

@@ -38,4 +38,8 @@ export class LenderService {
       .post(`${this.URL}/lender`, lender)
       .pipe(map((resp: any) => resp.lender));
   }
+
+  deleteLender(id: string) {
+    return this._http.delete(`${this.URL}/lender/${id}`);
+  }
 }

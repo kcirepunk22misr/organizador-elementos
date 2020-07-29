@@ -16,6 +16,7 @@ import { PagesComponent } from './pages/pages.component';
 import { PrestamosHomeComponent } from './prestamos/prestamos-home.component';
 import { PrestamosModule } from './prestamos/prestamos.module';
 import { RegisterUserComponent } from './login/register-user/register-user.component';
+import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RegisterUserComponent } from './login/register-user/register-user.compo
     PagesComponent,
     PrestamosHomeComponent,
     RegisterUserComponent,
+    NotPageFoundComponent,
   ],
   imports: [
     BrowserModule,

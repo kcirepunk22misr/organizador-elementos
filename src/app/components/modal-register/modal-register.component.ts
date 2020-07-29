@@ -21,7 +21,7 @@ export class ModalRegisterComponent implements OnInit {
   rows: Properties[];
   columns: Properties[];
 
-  num: number = 0;
+  num: number = 1;
   image: File;
 
   constructor(private _herramientasService: HerramientasService) {}
@@ -37,8 +37,8 @@ export class ModalRegisterComponent implements OnInit {
       this.num++;
     }
 
-    if (this.num < 0) {
-      this.num = 0;
+    if (this.num < 1) {
+      this.num = 1;
     }
   }
 
@@ -73,22 +73,23 @@ export class ModalRegisterComponent implements OnInit {
       .subscribe((respInventory) => {
         if (this.image !== undefined) {
           this._herramientasService.uploadImage(this.image).then((resp) => {
+            this.image = undefined;
             this._herramientasService
               .updateInventory(respInventory.inventory._id, {
                 img: resp.secure_url,
               })
               .subscribe((respImage) => {
-                console.log(respInventory);
                 Swal.fire(
                   'Guardado Exitosamente',
-                  `Agregago a la tabla`,
+                  `Agregado a la tabla`,
                   'success'
                 );
+                f.reset();
               });
           });
         } else {
-          console.log(respInventory);
-          Swal.fire('Guardado Exitosamente', `Agregago a la tabla`, 'success');
+          Swal.fire('Guardado Exitosamente', `Agregado a la tabla`, 'success');
+          f.reset();
         }
       });
   }

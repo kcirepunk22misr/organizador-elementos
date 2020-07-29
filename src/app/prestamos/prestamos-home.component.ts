@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { Lender, Inventory } from '../interfaces/interfaces';
 import { LenderService } from '../services/lender.service';
 import { PrestamosService } from '../services/prestamos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -19,7 +19,8 @@ export class PrestamosHomeComponent implements OnInit, DoCheck {
   constructor(
     private _lenderService: LenderService,
     private _prestamosService: PrestamosService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
   ) {
     this.lenderById = {
       _id: '',
@@ -50,6 +51,7 @@ export class PrestamosHomeComponent implements OnInit, DoCheck {
 
   getLender() {
     this._lenderService.getLender().subscribe((resp) => {
+      this.lenders = [];
       this.lenders.push(...resp);
     });
   }
@@ -101,14 +103,32 @@ export class PrestamosHomeComponent implements OnInit, DoCheck {
   }
 
   saveLender(f: NgForm) {
-    this._lenderService.createLender(f.value).subscribe(
-      (resp) => {
-        console.log(resp);
-        this.lenders.push(resp);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    this._lenderService.createLender(f.value).subscribe((resp) => {
+      this.lenders.push(resp);
+      f.reset();
+      Swal.fire({
+        icon: 'success',
+        title: 'Prestamista creado!!',
+      });
+    });
+  }
+
+  deleteLender() {
+    return this._lenderService.deleteLender(this.lenderId).subscribe(() => {
+      Swal.fire({
+        title: '¿Estas seguro que deseas eliminarlo?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire('Borrado', 'Acabas de eliminar un prestamista', 'success');
+          this.getLender();
+          this._router.navigate(['prestamos']);
+        }
+      });
+    });
   }
 }

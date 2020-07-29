@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this._userServices.login(f.value).subscribe(
       (resp) => {
         f.reset();
-        window.location.href = '/';
+        window.location.href = '';
       },
       (err) => {
         this.error = err.error.message;
