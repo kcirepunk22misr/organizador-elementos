@@ -149,7 +149,7 @@
 }
 
 .form-structor .signup .submit-btn {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #000;
   color: rgba(255, 255, 255, 0.7);
   border: 0;
   border-radius: 15px;
@@ -167,7 +167,7 @@
 
 .form-structor .signup .submit-btn:hover {
   transition: all 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000;
 }
 
 .form-structor .login {
