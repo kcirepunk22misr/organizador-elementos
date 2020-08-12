@@ -7,6 +7,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { ReciboPrestamosComponent } from './recibo-prestamos/recibo-prestamos.component';
 import { DeletePropiedadComponent } from './delete-propiedad/delete-propiedad.component';
+import { RegisterToolComponent } from './register-tool/register-tool.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       },
       { path: 'actualizar/:id', component: ActualizarOComponent },
       { path: 'recibo/:id', component: ReciboPrestamosComponent },
+      { path: 'registrar', component: RegisterToolComponent }
     ],
   },
 ];

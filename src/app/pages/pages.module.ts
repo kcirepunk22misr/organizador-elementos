@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { ReciboPrestamosComponent } from './recibo-prestamos/recibo-prestamos.component';
 import { DeletePropiedadComponent } from './delete-propiedad/delete-propiedad.component';
+import { RegisterToolComponent } from './register-tool/register-tool.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DeletePropiedadComponent } from './delete-propiedad/delete-propiedad.co
     PropiedadesComponent,
     ReciboPrestamosComponent,
     DeletePropiedadComponent,
+    RegisterToolComponent,
   ],
   imports: [
     CommonModule,
